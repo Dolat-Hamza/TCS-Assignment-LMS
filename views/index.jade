@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    h1
+        |Home
+    ul
+        li 
+            a(href= '/studentByRollNo')
+                |Student
+        li
+            a(href="/index/showstudent")
+                |Teacher 
+        li 
+            a(href="/index/deletestudent")  
+                |Head
+    div.col-lg-5 
+        block middle 

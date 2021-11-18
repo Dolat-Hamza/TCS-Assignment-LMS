@@ -1,0 +1,20 @@
+h1 Welcome
+h2 #{student.name} (#{student.rollno})
+block content
+    h1
+        |Dashboard
+    ul
+        li 
+            a(href= '/students/viewQuizzes')
+                |View Quizzes
+        li
+            a(href="/students/viewAssignments")
+                |View Assignments 
+        li 
+            a(href="/students/viewMaterial")  
+                |View Material
+        li
+            a(href="/index/showstudent")
+                |View Results 
+    div.col-lg-5 
+        block middle 
