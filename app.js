@@ -5,7 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var adminRouter = require('./routes/admin');
 var studentRouter = require('./routes/student');
 var teacherRouter = require('./routes/teacher');
@@ -27,7 +26,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/user', usersRouter);
 app.use('/head', headRouter);
 app.use('/teacher', teacherRouter);
 app.use('/admin', adminRouter);
