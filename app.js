@@ -4,11 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
-var indexRouter = require('./routes/index');
-var adminRouter = require('./routes/admin');
-var studentRouter = require('./routes/student');
-var teacherRouter = require('./routes/teacher');
-var headRouter = require('./routes/head');
+var indexRouter = require('./app_server/routes/index');
+var adminRouter = require('./app_server/routes/admin');
+var studentRouter = require('./app_server/routes/student');
+var teacherRouter = require('./app_server/routes/teacher');
+var headRouter = require('./app_server/routes/head');
 const connection = mongoose.connect("mongodb+srv://admin:admin@tcs-1.xcfza.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
 var app = express();
 connection.then((db) => {

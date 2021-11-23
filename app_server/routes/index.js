@@ -1,5 +1,5 @@
 var express = require("express");
-var app = require("../app");
+var app = require("../../app");
 var router = express.Router();
 var Student = require("../models/student");
 

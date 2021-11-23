@@ -4,7 +4,7 @@ var Admin = require("../models/admin");
 
 var Teacher = require("../models/teacher");
 var Student = require("../models/student");
-var classesConteroller = require("../bin/Controllers/ClassesController");
+var classesConteroller = require("../Controllers/ClassesController");
 const Quiz = require("../models/quiz");
 const assignments = require("../models/assignments");
 const material = require("../models/material");
