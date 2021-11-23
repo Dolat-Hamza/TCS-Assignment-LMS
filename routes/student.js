@@ -51,7 +51,7 @@ router.get("/viewAssignments", function (req, res, next) {
 
 router.get("/submitAssignment:id", function (req, res, next) {
   console.log(req.params.id);
-  Quiz.findByIdAndUpdate(req.params.id, {
+  assignments.findByIdAndUpdate(req.params.id, {
     $push: {
       submissions: {
         sid: index.userId._id,

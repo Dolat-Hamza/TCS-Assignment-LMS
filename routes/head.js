@@ -23,4 +23,13 @@ router.get("/viewMaterial", function (req, res, next) {
   });
 });
 
+router.get('/classes/:id', function(req, res, next) {
+  Class.find({ _id: req.params.id }).populate('teacher').populate('students.sid').exec(function(error, results) {
+      if (error) {
+          return next(error);
+      }
+      res.json(results);
+  });
+});
+
 module.exports = router;

@@ -12,10 +12,14 @@ router.get("/", function (req, res, next) {
 
 //View Quiz
 router.get("/viewQuizzes", function (req, res, next) {
-  Quiz.find().exec(function (error, results) {
-    if (error) {
-      return next(error);
+  Quiz.find().exec(function (err, results) {
+    if (err) {
+      console.log('found');
+
+      return next(err);
     }
+    res.send('Found');
+    console.log('found');
   });
 });
 
@@ -52,9 +56,9 @@ router.post("/createAssignment", function (req, res, next) {
 
 //Delete Quiz
 router.delete("/delQuiz/:id", function (req, res, next) {
-  Quiz.deleteOne({ _id: req.params.id }, function (error, results) {
-    if (error) {
-      return next(error);
+  Quiz.deleteOne({ _id: req.params.id }, function (err, results) {
+    if (err) {
+      return next(err);
     }
     // Respond with valid data
     res.json(results);
@@ -62,9 +66,9 @@ router.delete("/delQuiz/:id", function (req, res, next) {
 });
 // Delete Assignment
 router.delete("/delAssign/:id", function (req, res, next) {
-  assignment.deleteOne({ _id: req.params.id }, function (error, results) {
-    if (error) {
-      return next(error);
+  assignment.deleteOne({ _id: req.params.id }, function (err, results) {
+    if (err) {
+      return next(err);
     }
     // Respond with valid data
     res.json(results);
@@ -89,18 +93,18 @@ router.post("/AddMaterial", function (req, res, next) {
 //view Material
 
 router.get("/viewMaterial", function (req, res, next) {
-  material.find().exec(function (error, results) {
-    if (error) {
-      return next(error);
+  material.find().exec(function (err, results) {
+    if (err) {
+      return next(err);
     }
   });
 });
 
 // Delete Material
 router.delete("/delMaterial/:id", function (req, res, next) {
-  material.deleteOne({ _id: req.params.id }, function (error, results) {
-    if (error) {
-      return next(error);
+  material.deleteOne({ _id: req.params.id }, function (err, results) {
+    if (err) {
+      return next(err);
     }
     res.json(results);
   });
@@ -109,11 +113,34 @@ router.delete("/delMaterial/:id", function (req, res, next) {
 //Download Material
 
 router.get("/downloadMaterial:id", function (req, res, next) {
-  material.findById(req.params.id).exec(function (error, result) {
-    if (error) {
-      return next(error);
+  material.findById(req.params.id).exec(function (err, result) {
+    if (err) {
+      return next(err);
     }
   });
 });
 
+//Add Quiz Marks:
+router.put('/markQuiz:id/student:sid/marks: mid', function(req, res, next) {
+  Quiz.findById(req.params.id).exec(function(err, results){
+    if (err) {
+      return next(err);
+    }
+    let result = results[0];
+    if(result.submissions)
+    res.send(results[0]);
+  });
+});
+
+//Add Assignment Marks:
+router.put('/markAssign:id/student:sid/marks: mid', function(req, res, next) {
+  assignments.findById(req.params.id).exec(function(err, results){
+    if (err) {
+      return next(err);
+    }
+    let result = results[0];
+    if(result.submissions)
+    res.send(results[0]);
+  });
+});
 module.exports = router;

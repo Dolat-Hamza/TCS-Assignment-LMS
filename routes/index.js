@@ -6,9 +6,7 @@ var Student = require("../models/student");
 /* GET home page. */
 router.get("/", function (req, res, next) {});
 
-router.get("/studentByRollNo", function (req, res, next) {});
-
-router.post("/showStudentDashboard", function (req, res, next) {
+router.post("/StudentDashboard", function (req, res, next) {
   Student.find({ rollno: req.body.rollNo }).exec(function (error, results) {
     if (error) {
       return next(error);
