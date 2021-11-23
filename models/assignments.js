@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 var assignmentSchema = new Schema({
-    totalMarks: {
+    TMarks: {
         type: Number,
         required: true,
     },
