@@ -28,7 +28,6 @@ router.post("/createQuiz", function (req, res, next) {
   Quiz.create(req.body)
     .then(
       (teacher) => {
-        console.log("Quiz has been Added ", teacher);
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
         res.json(teacher);
@@ -44,7 +43,6 @@ router.post("/createAssignment", function (req, res, next) {
     .create(req.body)
     .then(
       (teacher) => {
-        console.log("Assignment has been Added ", teacher);
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
         res.json(teacher);
@@ -80,7 +78,6 @@ router.post("/AddMaterial", function (req, res, next) {
     .create(req.body)
     .then(
       (teacher) => {
-        console.log("Material has been Added ", teacher);
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
         res.json(teacher);

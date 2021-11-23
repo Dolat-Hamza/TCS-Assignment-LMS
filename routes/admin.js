@@ -79,7 +79,6 @@ router.post("/addteacher", function (req, res, next) {
   Teacher.create(req.body)
     .then(
       (teacher) => {
-        console.log("Teacher has been Added ", teacher);
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
         res.json(teacher);
@@ -93,7 +92,6 @@ router.post("/createQuiz", function (req, res, next) {
   Quiz.create(req.body)
     .then(
       (teacher) => {
-        console.log("Quiz has been Added ", teacher);
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
         res.json(teacher);
@@ -108,7 +106,6 @@ router.post("/AddMaterial", function (req, res, next) {
     .create(req.body)
     .then(
       (teacher) => {
-        console.log("Material has been Added ", teacher);
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
         res.json(teacher);
@@ -123,7 +120,6 @@ router.post("/createAssignment", function (req, res, next) {
     .create(req.body)
     .then(
       (teacher) => {
-        console.log("Assignment has been Added ", teacher);
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
         res.json(teacher);
@@ -137,7 +133,6 @@ router.post("/addclass", function (req, res, next) {
   Class.create(req.body)
     .then(
       (result) => {
-        console.log("Class has been Added ", result);
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
         res.json(result);
@@ -150,7 +145,6 @@ router.post("/addstudent", function (req, res, next) {
   Student.create(req.body)
     .then(
       (student) => {
-        console.log("Student has been Added ", student);
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
         res.json(student);
